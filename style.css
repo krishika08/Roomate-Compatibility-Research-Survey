@@ -1,48 +1,115 @@
-body {
-  font-family: Arial;
-  background: linear-gradient(135deg,#1e3c72,#2a5298);
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+  height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  height:100vh;
+  background:linear-gradient(135deg,#667eea,#764ba2);
 }
 
-.container {
-  background:white;
+.form-container{
+  width:420px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(15px);
   padding:30px;
-  width:400px;
-  border-radius:10px;
-}
-
-.section { display:none; }
-.section.active { display:block; }
-
-button {
-  margin-top:15px;
-  padding:8px 12px;
-  background:#2a5298;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
   color:white;
-  border:none;
-  cursor:pointer;
 }
 
-.error {
-  color:red;
-  font-size:12px;
+.section{
+  display:none;
+  animation:fade 0.4s ease;
+}
+
+.section.active{
   display:block;
 }
 
-.progress {
-  height:6px;
-  background:#ddd;
+h2{
   margin-bottom:20px;
 }
 
-#progressBar {
-  height:100%;
-  width:33%;
-  background:#2a5298;
-  transition:0.3s;
+.input-group{
+  margin-bottom:20px;
 }
 
-.hidden { display:none; }
+input, select{
+  width:100%;
+  padding:8px;
+  border-radius:8px;
+  border:none;
+  margin-top:5px;
+}
+
+.radio-group label{
+  display:block;
+  margin:5px 0;
+  cursor:pointer;
+}
+
+button{
+  padding:10px 15px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.next-btn{
+  background:#00c6ff;
+  color:white;
+}
+
+.prev-btn{
+  background:#aaa;
+}
+
+.submit-btn{
+  background:#00ff95;
+  color:black;
+}
+
+.progress-wrapper{
+  height:6px;
+  background:rgba(255,255,255,0.3);
+  border-radius:10px;
+  margin-bottom:20px;
+}
+
+.progress-bar{
+  height:100%;
+  width:33%;
+  background:#00ff95;
+  transition:0.4s;
+}
+
+.error{
+  color:#ff6b6b;
+  font-size:12px;
+}
+
+.hidden{
+  display:none;
+}
+
+#thankYou{
+  text-align:center;
+}
+
+.checkmark{
+  font-size:50px;
+  color:#00ff95;
+  margin-bottom:15px;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
