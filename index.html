@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Roommate Compatibility Research Survey</title>
+  <title>Roomie Match AI Survey</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -10,46 +10,60 @@
 
 <div class="wrapper">
   <div class="card">
-    <h1>Roomie Match AI</h1>
-    <p class="tagline">Find your perfect roommate 💙</p>
 
-    <form id="roomieForm"
-      action="https://docs.google.com/forms/d/e/1FAIpQLSfOLXSFmPWCdB_QMkyXZ0BasjG_n05AS6DPX2qtv6F8ynqSyw/formResponse"
-      method="POST"
-      target="hidden_iframe">
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
 
-      <!-- Question 1 -->
-      <div class="form-group">
-        <label>Where are you currently studying?</label>
-        <input type="text" name="entry.1" required>
-      </div>
+    <!-- FORM SECTION -->
+    <div id="formSection">
+      <h1>Roomie Match AI</h1>
+      <p class="tagline">Find your perfect roommate 💙</p>
 
-      <!-- Question 2 -->
-      <div class="form-group">
-        <label>Current Living Type</label>
+      <form id="roomieForm"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSfOLXSFmPWCdB_QMkyXZ0BasjG_n05AS6DPX2qtv6F8ynqSyw/formResponse"
+        method="POST"
+        target="hidden_iframe">
 
-        <div class="radio-group">
-          <label><input type="radio" name="entry.682599904" value="University dorm/hostel" required> University Dorm / Hostel</label>
-          <label><input type="radio" name="entry.682599904" value="Shared apartment"> Shared Apartment</label>
-          <label><input type="radio" name="entry.682599904" value="Co-living"> Co-living</label>
-          <label><input type="radio" name="entry.682599904" value="Living alone"> Living Alone</label>
+        <div class="form-group">
+          <label>Where are you currently studying?</label>
+          <input type="text" name="entry.1" id="studyInput">
+          <small class="error"></small>
         </div>
-      </div>
 
-      <!-- Question 3 -->
-      <div class="form-group">
-        <label>Have you ever shared a room?</label>
-
-        <div class="radio-group">
-          <label><input type="radio" name="entry.2078507498" value="Yes" required> Yes</label>
-          <label><input type="radio" name="entry.2078507498" value="No"> No</label>
+        <div class="form-group">
+          <label>Current Living Type</label>
+          <div class="radio-group" id="livingGroup">
+            <label><input type="radio" name="entry.682599904" value="University dorm/hostel"> Dorm / Hostel</label>
+            <label><input type="radio" name="entry.682599904" value="Shared apartment"> Shared Apartment</label>
+            <label><input type="radio" name="entry.682599904" value="Co-living"> Co-living</label>
+            <label><input type="radio" name="entry.682599904" value="Living alone"> Living Alone</label>
+          </div>
+          <small class="error"></small>
         </div>
-      </div>
 
-      <button type="submit" id="submitBtn">Submit</button>
-      <p id="formMessage"></p>
+        <div class="form-group">
+          <label>Have you ever shared a room?</label>
+          <div class="radio-group" id="sharedGroup">
+            <label><input type="radio" name="entry.2078507498" value="Yes"> Yes</label>
+            <label><input type="radio" name="entry.2078507498" value="No"> No</label>
+          </div>
+          <small class="error"></small>
+        </div>
 
-    </form>
+        <button type="submit" id="submitBtn">Submit</button>
+      </form>
+    </div>
+
+    <!-- THANK YOU SECTION -->
+    <div id="thankYouSection" class="hidden">
+      <div class="checkmark">✔</div>
+      <h2>Thank You!</h2>
+      <p>Your response has been recorded successfully 🎉</p>
+      <button id="newResponseBtn">Submit Another Response</button>
+    </div>
+
   </div>
 </div>
 
