@@ -1,61 +1,55 @@
-let currentPage = 0;
-const pages = document.querySelectorAll(".form-page");
-const form = document.getElementById("multiStepForm");
+document.addEventListener("DOMContentLoaded", function () {
 
-// Show page
-function showPage(index) {
-    pages.forEach((page, i) => {
-        page.classList.remove("active");
-        if (i === index) {
-            page.classList.add("active");
+    let currentPage = 0;
+    const pages = document.querySelectorAll(".form-page");
+
+    function showPage(index) {
+        pages.forEach((page, i) => {
+            page.style.display = "none";
+            if (i === index) {
+                page.style.display = "block";
+            }
+        });
+    }
+
+    window.nextPage = function () {
+
+        // Validate required inputs on current page
+        const inputs = pages[currentPage].querySelectorAll("input[required]");
+        let valid = true;
+
+        inputs.forEach(input => {
+
+            if (input.type === "radio") {
+                const checked = pages[currentPage].querySelector(
+                    `input[name="${input.name}"]:checked`
+                );
+                if (!checked) valid = false;
+            }
+
+            if (input.type === "text" && input.value.trim() === "") {
+                valid = false;
+            }
+        });
+
+        if (!valid) {
+            alert("Please fill all required fields before continuing.");
+            return;
         }
-    });
-}
 
-// Validate current page before moving next
-function nextPage() {
-
-    const inputs = pages[currentPage].querySelectorAll("input[required]");
-    let valid = true;
-
-    inputs.forEach(input => {
-        if (input.type === "radio") {
-            const name = input.name;
-            const checked = pages[currentPage].querySelector(`input[name="${name}"]:checked`);
-            if (!checked) valid = false;
-        } else if (!input.value) {
-            valid = false;
+        if (currentPage < pages.length - 1) {
+            currentPage++;
+            showPage(currentPage);
         }
-    });
+    };
 
-    if (!valid) {
-        alert("Please complete all required fields before continuing.");
-        return;
-    }
+    window.prevPage = function () {
+        if (currentPage > 0) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    };
 
-    if (currentPage < pages.length - 1) {
-        currentPage++;
-        showPage(currentPage);
-    }
-}
-
-// Previous page
-function prevPage() {
-    if (currentPage > 0) {
-        currentPage--;
-        showPage(currentPage);
-    }
-}
-
-// Show thank you after submit
-form.addEventListener("submit", function() {
-
-    setTimeout(() => {
-        form.style.display = "none";
-        const thankYou = document.createElement("div");
-        thankYou.classList.add("thank-you");
-        thankYou.innerHTML = "🎉 Thank you! Your response has been submitted successfully.";
-        thankYou.style.display = "block";
-        document.querySelector(".container").appendChild(thankYou);
-    }, 800);
+    // Initialize first page
+    showPage(currentPage);
 });
