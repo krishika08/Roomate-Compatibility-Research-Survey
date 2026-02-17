@@ -2,121 +2,120 @@
 <html>
 <head>
   <title>Roommate Compatibility Survey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+<div class="background"></div>
 
-  <div class="progress">
-    <div id="progressBar"></div>
+<div class="form-container">
+
+  <div class="progress-wrapper">
+    <div class="progress-bar" id="progressBar"></div>
   </div>
 
   <form id="surveyForm"
-  action="https://docs.google.com/forms/d/e/1FAIpQLSfOLXSFmPWCdB_QMkyXZ0BasjG_n05AS6DPX2qtv6F8ynqSyw/formResponse"
-  method="POST"
-  target="hidden_iframe">
+    action="https://docs.google.com/forms/d/e/1FAIpQLSfOLXSFmPWCdB_QMkyXZ0BasjG_n05AS6DPX2qtv6F8ynqSyw/formResponse"
+    method="POST"
+    target="hidden_iframe">
 
   <!-- SECTION 1 -->
   <div class="section active">
     <h2>Basic Information</h2>
 
-    <label>Where are you currently studying?</label>
-    <input type="text" name="entry.1" id="study">
-    <small class="error"></small>
-
-    <label>Current living type</label>
-    <div>
-      <input type="radio" name="entry.682599904" value="Dorm"> Dorm
-      <input type="radio" name="entry.682599904" value="Shared"> Shared
-      <input type="radio" name="entry.682599904" value="Co-living"> Co-living
-      <input type="radio" name="entry.682599904" value="Alone"> Alone
+    <div class="input-group">
+      <label>Where are you currently studying?</label>
+      <input type="text" name="entry.1" id="study">
+      <small class="error"></small>
     </div>
-    <small class="error"></small>
 
-    <label>Have you ever shared a room?</label>
-    <div>
-      <input type="radio" name="entry.2078507498" value="Yes"> Yes
-      <input type="radio" name="entry.2078507498" value="No"> No
+    <div class="input-group">
+      <label>Current living type</label>
+      <div class="radio-group">
+        <label><input type="radio" name="entry.682599904" value="Dorm">Dorm</label>
+        <label><input type="radio" name="entry.682599904" value="Shared">Shared</label>
+        <label><input type="radio" name="entry.682599904" value="Co-living">Co-living</label>
+        <label><input type="radio" name="entry.682599904" value="Alone">Alone</label>
+      </div>
+      <small class="error"></small>
     </div>
-    <small class="error"></small>
 
-    <button type="button" class="next">Next</button>
+    <div class="input-group">
+      <label>Have you ever shared a room?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="entry.2078507498" value="Yes">Yes</label>
+        <label><input type="radio" name="entry.2078507498" value="No">No</label>
+      </div>
+      <small class="error"></small>
+    </div>
+
+    <button type="button" class="next-btn">Next →</button>
   </div>
 
   <!-- SECTION 2 -->
   <div class="section">
     <h2>Lifestyle Preferences</h2>
 
-    <label>I prefer sleeping early</label>
-    <select name="entry.SLEEP">
-      <option value="">Select</option>
-      <option>Strongly disagree</option>
-      <option>Disagree</option>
-      <option>Neutral</option>
-      <option>Agree</option>
-      <option>Strongly agree</option>
-    </select>
-    <small class="error"></small>
+    <div class="input-group">
+      <label>I prefer sleeping early</label>
+      <select name="entry.SLEEP">
+        <option value="">Select</option>
+        <option>Strongly disagree</option>
+        <option>Disagree</option>
+        <option>Neutral</option>
+        <option>Agree</option>
+        <option>Strongly agree</option>
+      </select>
+      <small class="error"></small>
+    </div>
 
-    <label>I wake up early</label>
-    <select name="entry.WAKE">
-      <option value="">Select</option>
-      <option>Strongly disagree</option>
-      <option>Disagree</option>
-      <option>Neutral</option>
-      <option>Agree</option>
-      <option>Strongly agree</option>
-    </select>
-    <small class="error"></small>
+    <div class="input-group">
+      <label>Cleanliness is very important to me</label>
+      <select name="entry.CLEAN">
+        <option value="">Select</option>
+        <option>Strongly disagree</option>
+        <option>Disagree</option>
+        <option>Neutral</option>
+        <option>Agree</option>
+        <option>Strongly agree</option>
+      </select>
+      <small class="error"></small>
+    </div>
 
-    <label>Cleanliness is very important to me</label>
-    <select name="entry.CLEAN">
-      <option value="">Select</option>
-      <option>Strongly disagree</option>
-      <option>Disagree</option>
-      <option>Neutral</option>
-      <option>Agree</option>
-      <option>Strongly agree</option>
-    </select>
-    <small class="error"></small>
-
-    <button type="button" class="prev">Previous</button>
-    <button type="button" class="next">Next</button>
+    <button type="button" class="prev-btn">← Back</button>
+    <button type="button" class="next-btn">Next →</button>
   </div>
 
   <!-- SECTION 3 -->
   <div class="section">
     <h2>Pain & Validation</h2>
 
-    <label>Have you experienced roommate conflict?</label>
-    <div>
-      <input type="radio" name="entry.CONFLICT" value="Yes"> Yes
-      <input type="radio" name="entry.CONFLICT" value="No"> No
-      <input type="radio" name="entry.CONFLICT" value="Maybe"> Maybe
+    <div class="input-group">
+      <label>Have you experienced roommate conflict?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="entry.CONFLICT" value="Yes">Yes</label>
+        <label><input type="radio" name="entry.CONFLICT" value="No">No</label>
+        <label><input type="radio" name="entry.CONFLICT" value="Maybe">Maybe</label>
+      </div>
+      <small class="error"></small>
     </div>
-    <small class="error"></small>
 
-    <label>Main reason</label>
-    <div>
-      <input type="checkbox" name="entry.REASON" value="Sleep schedule"> Sleep
-      <input type="checkbox" name="entry.REASON" value="Cleanliness"> Cleanliness
-      <input type="checkbox" name="entry.REASON" value="Noise"> Noise
+    <div class="input-group">
+      <label>Stress level (1–5)</label>
+      <input type="range" min="1" max="5" name="entry.STRESS">
     </div>
-    <small class="error"></small>
 
-    <label>Stress level (1–5)</label>
-    <input type="range" min="1" max="5" name="entry.STRESS">
-    
-    <button type="button" class="prev">Previous</button>
-    <button type="submit">Submit</button>
+    <button type="button" class="prev-btn">← Back</button>
+    <button type="submit" class="submit-btn">Submit</button>
   </div>
 
   </form>
 
   <div id="thankYou" class="hidden">
-    <h2>Thank You 🎉</h2>
-    <p>Your response has been recorded.</p>
+    <div class="checkmark">✔</div>
+    <h2>Thank You!</h2>
+    <p>Your response has been recorded successfully.</p>
   </div>
 
 </div>
