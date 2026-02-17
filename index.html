@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roommate Compatibility Research Survey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="card">
+    <h1>Roomie Match AI</h1>
+    <p class="tagline">Find your perfect roommate 💙</p>
+
+    <form id="roomieForm"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSfOLXSFmPWCdB_QMkyXZ0BasjG_n05AS6DPX2qtv6F8ynqSyw/formResponse"
+      method="POST"
+      target="hidden_iframe">
+
+      <!-- Question 1 -->
+      <div class="form-group">
+        <label>Where are you currently studying?</label>
+        <input type="text" name="entry.1" required>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="form-group">
+        <label>Current Living Type</label>
+
+        <div class="radio-group">
+          <label><input type="radio" name="entry.682599904" value="University dorm/hostel" required> University Dorm / Hostel</label>
+          <label><input type="radio" name="entry.682599904" value="Shared apartment"> Shared Apartment</label>
+          <label><input type="radio" name="entry.682599904" value="Co-living"> Co-living</label>
+          <label><input type="radio" name="entry.682599904" value="Living alone"> Living Alone</label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="form-group">
+        <label>Have you ever shared a room?</label>
+
+        <div class="radio-group">
+          <label><input type="radio" name="entry.2078507498" value="Yes" required> Yes</label>
+          <label><input type="radio" name="entry.2078507498" value="No"> No</label>
+        </div>
+      </div>
+
+      <button type="submit" id="submitBtn">Submit</button>
+      <p id="formMessage"></p>
+
+    </form>
+  </div>
+</div>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<script src="script.js"></script>
+</body>
+</html>
