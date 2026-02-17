@@ -6,14 +6,21 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* ===== BODY BACKGROUND ===== */
+/* ===== ANIMATED BACKGROUND ===== */
 body {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  overflow: hidden;
+  background: linear-gradient(-45deg, #667eea, #764ba2, #6b73ff, #9d50bb);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* ===== MAIN CONTAINER ===== */
@@ -21,120 +28,21 @@ body {
   width: 500px;
   max-height: 90vh;
   overflow-y: auto;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px);
   padding: 35px;
   border-radius: 25px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
   color: white;
-  position: relative;
 }
 
-/* ===== SCROLLBAR ===== */
+/* ===== CUSTOM SCROLL ===== */
 .container::-webkit-scrollbar {
   width: 6px;
 }
 .container::-webkit-scrollbar-thumb {
   background: rgba(255,255,255,0.4);
   border-radius: 10px;
-}
-
-/* ===== SECTION TRANSITION ===== */
-.section {
-  display: none;
-  animation: slideFade 0.4s ease;
-}
-
-.section.active {
-  display: block;
-}
-
-@keyframes slideFade {
-  from { opacity: 0; transform: translateX(15px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-/* ===== HEADINGS ===== */
-h2 {
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-/* ===== LABEL ===== */
-label {
-  display: block;
-  margin: 15px 0 5px;
-  font-size: 14px;
-}
-
-/* ===== INPUT FIELDS ===== */
-input[type="text"],
-select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  margin-top: 5px;
-  background: rgba(255,255,255,0.9);
-  color: black;
-  font-size: 14px;
-}
-
-/* ===== CUSTOM RADIO & CHECKBOX ===== */
-input[type="radio"],
-input[type="checkbox"] {
-  accent-color: #00ff95;
-  transform: scale(1.1);
-  margin-right: 6px;
-  cursor: pointer;
-}
-
-/* ===== RANGE SLIDER ===== */
-input[type="range"] {
-  width: 100%;
-  margin-top: 10px;
-  accent-color: #00ff95;
-}
-
-/* ===== BUTTONS ===== */
-button {
-  padding: 10px 18px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-  font-weight: 500;
-  transition: 0.3s ease;
-}
-
-.next-btn {
-  background: #00c6ff;
-  color: white;
-}
-
-.next-btn:hover {
-  background: #0095d9;
-  box-shadow: 0 0 10px #00c6ff;
-}
-
-.prev-btn {
-  background: #aaa;
-  color: black;
-}
-
-.prev-btn:hover {
-  background: #888;
-}
-
-button[type="submit"] {
-  background: #00ff95;
-  color: black;
-}
-
-button[type="submit"]:hover {
-  background: #00cc77;
-  box-shadow: 0 0 10px #00ff95;
 }
 
 /* ===== PROGRESS BAR ===== */
@@ -150,11 +58,125 @@ button[type="submit"]:hover {
 #progressBar {
   height: 100%;
   width: 33%;
-  background: #00ff95;
+  background: linear-gradient(90deg, #00ff95, #00c6ff);
   transition: width 0.4s ease;
 }
 
-/* ===== ERROR MESSAGE ===== */
+/* ===== SECTIONS ===== */
+.section {
+  display: none;
+  animation: fadeSlide 0.4s ease;
+}
+
+.section.active {
+  display: block;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ===== LABEL ===== */
+label {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* ===== TEXT INPUT & SELECT ===== */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: rgba(255,255,255,0.95);
+  color: #333;
+  transition: 0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus {
+  box-shadow: 0 0 8px #00ff95;
+}
+
+/* ===== RADIO & CHECKBOX ===== */
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: #00ff95;
+  transform: scale(1.1);
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+label input {
+  margin-right: 6px;
+}
+
+/* ===== RANGE SLIDER ===== */
+input[type="range"] {
+  width: 100%;
+  margin-top: 10px;
+  accent-color: #00ff95;
+  cursor: pointer;
+}
+
+/* ===== BUTTONS ===== */
+button {
+  padding: 10px 18px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s ease;
+}
+
+/* NEXT BUTTON */
+.next-btn {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+}
+
+.next-btn:hover {
+  box-shadow: 0 0 12px #00c6ff;
+  transform: translateY(-2px);
+}
+
+/* PREVIOUS BUTTON */
+.prev-btn {
+  background: rgba(255,255,255,0.5);
+  color: black;
+}
+
+.prev-btn:hover {
+  background: white;
+}
+
+/* SUBMIT BUTTON */
+button[type="submit"] {
+  background: linear-gradient(90deg, #00ff95, #00c6ff);
+  color: black;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  box-shadow: 0 0 15px #00ff95;
+  transform: translateY(-2px);
+}
+
+/* ===== ERROR ===== */
 .error {
   color: #ff6b6b;
   font-size: 12px;
