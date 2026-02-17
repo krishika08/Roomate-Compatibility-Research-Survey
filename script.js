@@ -1,73 +1,44 @@
-const form = document.getElementById("roomieForm");
-const submitBtn = document.getElementById("submitBtn");
-const formSection = document.getElementById("formSection");
-const thankYouSection = document.getElementById("thankYouSection");
-const newResponseBtn = document.getElementById("newResponseBtn");
+const sections = document.querySelectorAll(".section");
+const nextBtns = document.querySelectorAll(".next");
+const prevBtns = document.querySelectorAll(".prev");
 const progressBar = document.getElementById("progressBar");
+const form = document.getElementById("surveyForm");
+const thankYou = document.getElementById("thankYou");
 
+let current = 0;
 let submitted = false;
 
-// Progress Logic
-form.addEventListener("input", () => {
-  let progress = 0;
+function showSection(index) {
+  sections.forEach(sec => sec.classList.remove("active"));
+  sections[index].classList.add("active");
+  progressBar.style.width = ((index+1)/sections.length)*100 + "%";
+}
 
-  if (document.getElementById("studyInput").value.trim() !== "") progress += 33;
-  if (document.querySelector('input[name="entry.682599904"]:checked')) progress += 33;
-  if (document.querySelector('input[name="entry.2078507498"]:checked')) progress += 34;
-
-  progressBar.style.width = progress + "%";
+nextBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (current < sections.length-1) {
+      current++;
+      showSection(current);
+    }
+  });
 });
 
-// Validation
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+prevBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (current > 0) {
+      current--;
+      showSection(current);
+    }
+  });
+});
 
-  let valid = true;
-  const errors = document.querySelectorAll(".error");
-  errors.forEach(err => err.textContent = "");
-
-  const study = document.getElementById("studyInput");
-  const living = document.querySelector('input[name="entry.682599904"]:checked');
-  const shared = document.querySelector('input[name="entry.2078507498"]:checked');
-
-  if (study.value.trim() === "") {
-    study.nextElementSibling.textContent = "This field is required";
-    valid = false;
+document.querySelector("iframe").addEventListener("load", () => {
+  if(submitted){
+    form.classList.add("hidden");
+    thankYou.classList.remove("hidden");
   }
+});
 
-  if (!living) {
-    document.querySelector("#livingGroup").nextElementSibling.textContent = "Please select one option";
-    valid = false;
-  }
-
-  if (!shared) {
-    document.querySelector("#sharedGroup").nextElementSibling.textContent = "Please select one option";
-    valid = false;
-  }
-
-  if (!valid) return;
-
-  submitBtn.disabled = true;
-  submitBtn.innerText = "Submitting...";
+form.addEventListener("submit", () => {
   submitted = true;
-  form.submit();
-});
-
-// Thank You Trigger
-document.querySelector("iframe").addEventListener("load", function () {
-  if (submitted) {
-    formSection.classList.add("hidden");
-    thankYouSection.classList.remove("hidden");
-    progressBar.style.width = "100%";
-    form.reset();
-    submitted = false;
-  }
-});
-
-newResponseBtn.addEventListener("click", function () {
-  thankYouSection.classList.add("hidden");
-  formSection.classList.remove("hidden");
-  progressBar.style.width = "0%";
-  submitBtn.disabled = false;
-  submitBtn.innerText = "Submit";
 });
