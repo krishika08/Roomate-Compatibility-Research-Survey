@@ -1,43 +1,61 @@
-const sections=document.querySelectorAll(".section");
-const nextBtns=document.querySelectorAll(".next-btn");
-const prevBtns=document.querySelectorAll(".prev-btn");
-const progressBar=document.getElementById("progressBar");
-const form=document.getElementById("surveyForm");
-const thankYou=document.getElementById("thankYou");
+let currentPage = 0;
+const pages = document.querySelectorAll(".form-page");
+const form = document.getElementById("multiStepForm");
 
-let current=0;
-let submitted=false;
-
-function showSection(index){
-  sections.forEach(sec=>sec.classList.remove("active"));
-  sections[index].classList.add("active");
+// Show page
+function showPage(index) {
+    pages.forEach((page, i) => {
+        page.classList.remove("active");
+        if (i === index) {
+            page.classList.add("active");
+        }
+    });
 }
 
-nextBtns.forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    if(current<sections.length-1){
-      current++;
-      showSection(current);
+// Validate current page before moving next
+function nextPage() {
+
+    const inputs = pages[currentPage].querySelectorAll("input[required]");
+    let valid = true;
+
+    inputs.forEach(input => {
+        if (input.type === "radio") {
+            const name = input.name;
+            const checked = pages[currentPage].querySelector(`input[name="${name}"]:checked`);
+            if (!checked) valid = false;
+        } else if (!input.value) {
+            valid = false;
+        }
+    });
+
+    if (!valid) {
+        alert("Please complete all required fields before continuing.");
+        return;
     }
-  });
-});
 
-prevBtns.forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    if(current>0){
-      current--;
-      showSection(current);
+    if (currentPage < pages.length - 1) {
+        currentPage++;
+        showPage(currentPage);
     }
-  });
-});
+}
 
-document.querySelector("iframe").addEventListener("load",()=>{
-  if(submitted){
-    form.style.display="none";
-    thankYou.classList.remove("hidden");
-  }
-});
+// Previous page
+function prevPage() {
+    if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+    }
+}
 
-form.addEventListener("submit",()=>{
-  submitted=true;
+// Show thank you after submit
+form.addEventListener("submit", function() {
+
+    setTimeout(() => {
+        form.style.display = "none";
+        const thankYou = document.createElement("div");
+        thankYou.classList.add("thank-you");
+        thankYou.innerHTML = "🎉 Thank you! Your response has been submitted successfully.";
+        thankYou.style.display = "block";
+        document.querySelector(".container").appendChild(thankYou);
+    }, 800);
 });
