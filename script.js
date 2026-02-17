@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.nextPage = function () {
 
-        // Validate required inputs on current page
         const inputs = pages[currentPage].querySelectorAll("input[required]");
         let valid = true;
 
@@ -33,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (!valid) {
-            alert("Please fill all required fields before continuing.");
+            alert("Please fill all required fields.");
             return;
         }
 
@@ -50,6 +49,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // Initialize first page
     showPage(currentPage);
 });
