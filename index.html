@@ -1,100 +1,174 @@
-<form id="surveyForm"
-action="https://docs.google.com/forms/d/e/1FAIpQLSfOLXSFmPWCdB_QMkyXZ0BasjG_n05AS6DPX2qtv6F8ynqSyw/formResponse"
-method="POST"
-target="hidden_iframe">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roommate Compatibility Survey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<!-- SECTION 1 -->
-<div class="section active">
-<h2>Basic Information</h2>
+<div class="container">
 
-<label>Where are you currently studying?</label>
-<input type="text" name="entry.1" required>
+  <!-- Progress Bar -->
+  <div class="progress">
+    <div id="progressBar"></div>
+  </div>
 
-<label>Current living type</label>
-<div>
-<input type="radio" name="entry.682599904" value="University dorm/hostel">Dorm/Hostel
-<input type="radio" name="entry.682599904" value="Shared apartment">Shared Apartment
-<input type="radio" name="entry.682599904" value="Co-living">Co-living
-<input type="radio" name="entry.682599904" value="Living alone">Living Alone
+  <form id="surveyForm"
+    action="https://docs.google.com/forms/d/e/1FAIpQLSfOLXSFmPWCdB_QMkyXZ0BasjG_n05AS6DPX2qtv6F8ynqSyw/formResponse"
+    method="POST"
+    target="hidden_iframe">
+
+    <!-- SECTION 1 -->
+    <div class="section active">
+      <h2>Basic Information</h2>
+
+      <label>Where are you currently studying?</label>
+      <input type="text" name="entry.1" required>
+
+      <label>Current living type</label>
+      <div>
+        <label><input type="radio" name="entry.682599904" value="University dorm/hostel"> Dorm / Hostel</label>
+        <label><input type="radio" name="entry.682599904" value="Shared apartment"> Shared Apartment</label>
+        <label><input type="radio" name="entry.682599904" value="Co-living"> Co-living</label>
+        <label><input type="radio" name="entry.682599904" value="Living alone"> Living Alone</label>
+      </div>
+
+      <label>Have you ever shared a room?</label>
+      <div>
+        <label><input type="radio" name="entry.2078507498" value="Yes"> Yes</label>
+        <label><input type="radio" name="entry.2078507498" value="No"> No</label>
+      </div>
+
+      <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="section">
+      <h2>Lifestyle Preferences</h2>
+
+      <label>I prefer sleeping early</label>
+      <select name="entry.SLEEP">
+        <option value="">Select</option>
+        <option>Strongly disagree</option>
+        <option>Disagree</option>
+        <option>Neutral</option>
+        <option>Agree</option>
+        <option>Strongly agree</option>
+      </select>
+
+      <label>I wake up early</label>
+      <select name="entry.WAKE">
+        <option value="">Select</option>
+        <option>Strongly disagree</option>
+        <option>Disagree</option>
+        <option>Neutral</option>
+        <option>Agree</option>
+        <option>Strongly agree</option>
+      </select>
+
+      <label>Cleanliness is very important to me</label>
+      <select name="entry.CLEAN">
+        <option value="">Select</option>
+        <option>Strongly disagree</option>
+        <option>Disagree</option>
+        <option>Neutral</option>
+        <option>Agree</option>
+        <option>Strongly agree</option>
+      </select>
+
+      <label>I prefer studying in silence</label>
+      <select name="entry.SILENCE">
+        <option value="">Select</option>
+        <option>Strongly disagree</option>
+        <option>Disagree</option>
+        <option>Neutral</option>
+        <option>Agree</option>
+        <option>Strongly agree</option>
+      </select>
+
+      <label>I am comfortable with noise</label>
+      <select name="entry.NOISE">
+        <option value="">Select</option>
+        <option>Strongly disagree</option>
+        <option>Disagree</option>
+        <option>Neutral</option>
+        <option>Agree</option>
+        <option>Strongly agree</option>
+      </select>
+
+      <label>I frequently invite friends</label>
+      <select name="entry.FRIENDS">
+        <option value="">Select</option>
+        <option>Strongly disagree</option>
+        <option>Disagree</option>
+        <option>Neutral</option>
+        <option>Agree</option>
+        <option>Strongly agree</option>
+      </select>
+
+      <label>I get disturbed by messy surroundings</label>
+      <select name="entry.MESSY">
+        <option value="">Select</option>
+        <option>Strongly disagree</option>
+        <option>Disagree</option>
+        <option>Neutral</option>
+        <option>Agree</option>
+        <option>Strongly agree</option>
+      </select>
+
+      <button type="button" class="prev-btn">Back</button>
+      <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="section">
+      <h2>Experience & Feedback</h2>
+
+      <label>Have you experienced roommate conflict?</label>
+      <div>
+        <label><input type="radio" name="entry.CONFLICT" value="Yes"> Yes</label>
+        <label><input type="radio" name="entry.CONFLICT" value="No"> No</label>
+        <label><input type="radio" name="entry.CONFLICT" value="Maybe"> Maybe</label>
+      </div>
+
+      <label>Main reason (if any)</label>
+      <div>
+        <label><input type="checkbox" name="entry.REASON" value="Sleep schedule"> Sleep schedule</label>
+        <label><input type="checkbox" name="entry.REASON" value="Cleanliness"> Cleanliness</label>
+        <label><input type="checkbox" name="entry.REASON" value="Noise"> Noise</label>
+        <label><input type="checkbox" name="entry.REASON" value="Guests"> Guests</label>
+        <label><input type="checkbox" name="entry.REASON" value="Personality"> Personality</label>
+      </div>
+
+      <label>Stress level (1–5)</label>
+      <input type="range" min="1" max="5" name="entry.STRESS">
+
+      <label>Would you prefer a compatibility system?</label>
+      <div>
+        <label><input type="radio" name="entry.SYSTEM" value="Yes"> Yes</label>
+        <label><input type="radio" name="entry.SYSTEM" value="No"> No</label>
+        <label><input type="radio" name="entry.SYSTEM" value="Maybe"> Maybe</label>
+      </div>
+
+      <button type="button" class="prev-btn">Back</button>
+      <button type="submit">Submit</button>
+    </div>
+
+  </form>
+
+  <!-- THANK YOU -->
+  <div id="thankYou" class="hidden">
+    <div class="checkmark">✔</div>
+    <h2>Thank You!</h2>
+    <p>Your response has been recorded successfully.</p>
+  </div>
+
 </div>
 
-<label>Have you ever shared a room?</label>
-<div>
-<input type="radio" name="entry.2078507498" value="Yes">Yes
-<input type="radio" name="entry.2078507498" value="No">No
-</div>
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 
-<button type="button" class="next-btn">Next</button>
-</div>
-
-<!-- SECTION 2 -->
-<div class="section">
-<h2>Lifestyle Preferences</h2>
-
-<label>I prefer sleeping early</label>
-<select name="entry.SLEEP">
-<option>Strongly disagree</option>
-<option>Disagree</option>
-<option>Neutral</option>
-<option>Agree</option>
-<option>Strongly agree</option>
-</select>
-
-<label>I wake up early</label>
-<select name="entry.WAKE"></select>
-
-<label>Cleanliness is very important to me</label>
-<select name="entry.CLEAN"></select>
-
-<label>I prefer studying in silence</label>
-<select name="entry.SILENCE"></select>
-
-<label>I am comfortable with noise</label>
-<select name="entry.NOISE"></select>
-
-<label>I frequently invite friends</label>
-<select name="entry.FRIENDS"></select>
-
-<label>I get disturbed easily by messy surroundings</label>
-<select name="entry.MESSY"></select>
-
-<button type="button" class="prev-btn">Back</button>
-<button type="button" class="next-btn">Next</button>
-</div>
-
-<!-- SECTION 3 -->
-<div class="section">
-<h2>Pain & Validation</h2>
-
-<label>Have you experienced roommate conflict?</label>
-<div>
-<input type="radio" name="entry.CONFLICT" value="Yes">Yes
-<input type="radio" name="entry.CONFLICT" value="No">No
-<input type="radio" name="entry.CONFLICT" value="Maybe">Maybe
-</div>
-
-<label>If yes, main reason</label>
-<div>
-<input type="checkbox" name="entry.REASON" value="Sleep schedule">Sleep schedule
-<input type="checkbox" name="entry.REASON" value="Cleanliness">Cleanliness
-<input type="checkbox" name="entry.REASON" value="Noise">Noise
-<input type="checkbox" name="entry.REASON" value="Guests">Guests
-<input type="checkbox" name="entry.REASON" value="Study habits">Study habits
-<input type="checkbox" name="entry.REASON" value="Personality">Personality
-</div>
-
-<label>Stress level (1–5)</label>
-<input type="range" min="1" max="5" name="entry.STRESS">
-
-<label>Would you prefer a compatibility system instead of random allocation?</label>
-<div>
-<input type="radio" name="entry.SYSTEM" value="Yes">Yes
-<input type="radio" name="entry.SYSTEM" value="No">No
-<input type="radio" name="entry.SYSTEM" value="Maybe">Maybe
-</div>
-
-<button type="button" class="prev-btn">Back</button>
-<button type="submit">Submit</button>
-</div>
-
-</form>
+<script src="script.js"></script>
+</body>
+</html>
