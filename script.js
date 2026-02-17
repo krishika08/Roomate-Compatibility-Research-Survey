@@ -11,7 +11,6 @@ let submitted=false;
 function showSection(index){
   sections.forEach(sec=>sec.classList.remove("active"));
   sections[index].classList.add("active");
-  progressBar.style.width=((index+1)/sections.length)*100+"%";
 }
 
 nextBtns.forEach(btn=>{
