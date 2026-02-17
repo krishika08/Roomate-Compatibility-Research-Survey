@@ -1,116 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Roommate Compatibility Survey</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Roommate Compatibility Survey</title>
 </head>
 <body>
 
-<div class="container">
+<h1>Roommate Compatibility Survey</h1>
 
-  <div class="progress">
-    <div id="progressBar"></div>
-  </div>
+<form 
+action="https://docs.google.com/forms/d/e/1FAIpQLSfOLXSFmPWCdB_QMkyXZ0BasjG_n05AS6DPX2qtv6F8ynqSyw/formResponse"
+method="POST"
+target="hidden_iframe">
 
-  <form id="surveyForm"
-  action="https://docs.google.com/forms/d/e/1FAIpQLSfOLXSFmPWCdB_QMkyXZ0BasjG_n05AS6DPX2qtv6F8ynqSyw/formResponse"
-  method="POST"
-  target="hidden_iframe">
+<!-- ================= SECTION 1 ================= -->
 
-  <!-- SECTION 1 -->
-  <div class="section active">
-    <h2>Basic Information</h2>
+<h2>Section 1: Basic Information</h2>
 
-    <label>Where are you currently studying?</label>
-    <input type="text" name="entry.1" required>
+<label>Where are you currently studying?</label><br>
+<input type="text" name="entry.1" required><br><br>
 
-    <label>Current living type</label>
-    <div>
-      <label><input type="radio" name="entry.682599904" value="Dorm" required> Dorm</label>
-      <label><input type="radio" name="entry.682599904" value="Shared"> Shared</label>
-      <label><input type="radio" name="entry.682599904" value="Co-living"> Co-living</label>
-      <label><input type="radio" name="entry.682599904" value="Alone"> Alone</label>
-    </div>
+<label>Current living type:</label><br>
+<input type="radio" name="entry.682599904" value="University dorm/hostel" required> University Dorm / Hostel<br>
+<input type="radio" name="entry.682599904" value="Shared apartment"> Shared Apartment<br>
+<input type="radio" name="entry.682599904" value="Co-living"> Co-living<br>
+<input type="radio" name="entry.682599904" value="Living alone"> Living Alone<br><br>
 
-    <label>Have you ever shared a room?</label>
-    <div>
-      <label><input type="radio" name="entry.2078507498" value="Yes" required> Yes</label>
-      <label><input type="radio" name="entry.2078507498" value="No"> No</label>
-    </div>
+<label>Have you ever shared a room?</label><br>
+<input type="radio" name="entry.2078507498" value="Yes" required> Yes<br>
+<input type="radio" name="entry.2078507498" value="No"> No<br><br>
 
-    <button type="button" class="next-btn">Next</button>
-  </div>
+<hr>
 
-  <!-- SECTION 2 -->
-  <div class="section">
-    <h2>Lifestyle Preferences</h2>
+<!-- ================= SECTION 2 ================= -->
 
-    <p class="scale-info">1 = Strongly Disagree | 5 = Strongly Agree</p>
+<h2>Section 2: Lifestyle Preferences</h2>
 
-    <label>I prefer sleeping early</label>
-    <div class="scale-group">
-      <label><input type="radio" name="REPLACE_SLEEP_ID" value="1" required>1</label>
-      <label><input type="radio" name="REPLACE_SLEEP_ID" value="2">2</label>
-      <label><input type="radio" name="REPLACE_SLEEP_ID" value="3">3</label>
-      <label><input type="radio" name="REPLACE_SLEEP_ID" value="4">4</label>
-      <label><input type="radio" name="REPLACE_SLEEP_ID" value="5">5</label>
-    </div>
+<p>Scale: 1 = Strongly Disagree | 5 = Strongly Agree</p>
 
-    <label>I wake up early</label>
-    <div class="scale-group">
-      <label><input type="radio" name="REPLACE_WAKE_ID" value="1" required>1</label>
-      <label><input type="radio" name="REPLACE_WAKE_ID" value="2">2</label>
-      <label><input type="radio" name="REPLACE_WAKE_ID" value="3">3</label>
-      <label><input type="radio" name="REPLACE_WAKE_ID" value="4">4</label>
-      <label><input type="radio" name="REPLACE_WAKE_ID" value="5">5</label>
-    </div>
+<!-- 1 -->
+<label>I prefer sleeping early</label><br>
+<input type="radio" name="entry.REPLACE_SLEEP" value="1" required> 1
+<input type="radio" name="entry.REPLACE_SLEEP" value="2"> 2
+<input type="radio" name="entry.REPLACE_SLEEP" value="3"> 3
+<input type="radio" name="entry.REPLACE_SLEEP" value="4"> 4
+<input type="radio" name="entry.REPLACE_SLEEP" value="5"> 5
+<br><br>
 
-    <button type="button" class="prev-btn">Back</button>
-    <button type="button" class="next-btn">Next</button>
-  </div>
+<!-- 2 -->
+<label>I wake up early</label><br>
+<input type="radio" name="entry.REPLACE_WAKE" value="1" required> 1
+<input type="radio" name="entry.REPLACE_WAKE" value="2"> 2
+<input type="radio" name="entry.REPLACE_WAKE" value="3"> 3
+<input type="radio" name="entry.REPLACE_WAKE" value="4"> 4
+<input type="radio" name="entry.REPLACE_WAKE" value="5"> 5
+<br><br>
 
-  <!-- SECTION 3 -->
-  <div class="section">
-    <h2>Experience</h2>
+<!-- 3 -->
+<label>Cleanliness is very important to me</label><br>
+<input type="radio" name="entry.REPLACE_CLEAN" value="1" required> 1
+<input type="radio" name="entry.REPLACE_CLEAN" value="2"> 2
+<input type="radio" name="entry.REPLACE_CLEAN" value="3"> 3
+<input type="radio" name="entry.REPLACE_CLEAN" value="4"> 4
+<input type="radio" name="entry.REPLACE_CLEAN" value="5"> 5
+<br><br>
 
-    <label>Have you experienced roommate conflict?</label>
-    <div>
-      <label><input type="radio" name="REPLACE_CONFLICT_ID" value="Yes" required> Yes</label>
-      <label><input type="radio" name="REPLACE_CONFLICT_ID" value="No"> No</label>
-      <label><input type="radio" name="REPLACE_CONFLICT_ID" value="Maybe"> Maybe</label>
-    </div>
+<!-- 4 -->
+<label>I prefer studying in silence</label><br>
+<input type="radio" name="entry.REPLACE_SILENCE" value="1" required> 1
+<input type="radio" name="entry.REPLACE_SILENCE" value="2"> 2
+<input type="radio" name="entry.REPLACE_SILENCE" value="3"> 3
+<input type="radio" name="entry.REPLACE_SILENCE" value="4"> 4
+<input type="radio" name="entry.REPLACE_SILENCE" value="5"> 5
+<br><br>
 
-    <label>Main reason</label>
-    <div>
-      <label><input type="checkbox" name="REPLACE_REASON_ID" value="Sleep" required> Sleep</label>
-      <label><input type="checkbox" name="REPLACE_REASON_ID" value="Cleanliness"> Cleanliness</label>
-      <label><input type="checkbox" name="REPLACE_REASON_ID" value="Noise"> Noise</label>
-    </div>
+<!-- 5 -->
+<label>I am comfortable with noise</label><br>
+<input type="radio" name="entry.REPLACE_NOISE" value="1" required> 1
+<input type="radio" name="entry.REPLACE_NOISE" value="2"> 2
+<input type="radio" name="entry.REPLACE_NOISE" value="3"> 3
+<input type="radio" name="entry.REPLACE_NOISE" value="4"> 4
+<input type="radio" name="entry.REPLACE_NOISE" value="5"> 5
+<br><br>
 
-    <label>Stress Level</label>
-    <div class="scale-group">
-      <label><input type="radio" name="REPLACE_STRESS_ID" value="1" required>1</label>
-      <label><input type="radio" name="REPLACE_STRESS_ID" value="2">2</label>
-      <label><input type="radio" name="REPLACE_STRESS_ID" value="3">3</label>
-      <label><input type="radio" name="REPLACE_STRESS_ID" value="4">4</label>
-      <label><input type="radio" name="REPLACE_STRESS_ID" value="5">5</label>
-    </div>
+<!-- 6 -->
+<label>I frequently invite friends over</label><br>
+<input type="radio" name="entry.REPLACE_FRIENDS" value="1" required> 1
+<input type="radio" name="entry.REPLACE_FRIENDS" value="2"> 2
+<input type="radio" name="entry.REPLACE_FRIENDS" value="3"> 3
+<input type="radio" name="entry.REPLACE_FRIENDS" value="4"> 4
+<input type="radio" name="entry.REPLACE_FRIENDS" value="5"> 5
+<br><br>
 
-    <button type="button" class="prev-btn">Back</button>
-    <button type="submit">Submit</button>
-  </div>
+<!-- 7 -->
+<label>I get disturbed by messy surroundings</label><br>
+<input type="radio" name="entry.REPLACE_MESSY" value="1" required> 1
+<input type="radio" name="entry.REPLACE_MESSY" value="2"> 2
+<input type="radio" name="entry.REPLACE_MESSY" value="3"> 3
+<input type="radio" name="entry.REPLACE_MESSY" value="4"> 4
+<input type="radio" name="entry.REPLACE_MESSY" value="5"> 5
+<br><br>
 
-  </form>
+<hr>
 
-  <div id="thankYou" class="hidden">
-    <h2>Thank You! 🎉</h2>
-  </div>
+<!-- ================= SECTION 3 ================= -->
 
-</div>
+<h2>Section 3: Experience & Feedback</h2>
+
+<!-- 1 -->
+<label>Have you experienced roommate conflict?</label><br>
+<input type="radio" name="entry.REPLACE_CONFLICT" value="Yes" required> Yes<br>
+<input type="radio" name="entry.REPLACE_CONFLICT" value="No"> No<br>
+<input type="radio" name="entry.REPLACE_CONFLICT" value="Maybe"> Maybe<br><br>
+
+<!-- 2 -->
+<label>Main reason (select all that apply)</label><br>
+<input type="checkbox" name="entry.REPLACE_REASON" value="Sleep schedule"> Sleep Schedule<br>
+<input type="checkbox" name="entry.REPLACE_REASON" value="Cleanliness"> Cleanliness<br>
+<input type="checkbox" name="entry.REPLACE_REASON" value="Noise"> Noise<br>
+<input type="checkbox" name="entry.REPLACE_REASON" value="Guests"> Guests<br>
+<input type="checkbox" name="entry.REPLACE_REASON" value="Personality"> Personality<br><br>
+
+<!-- 3 -->
+<label>Stress level (1-5)</label><br>
+<input type="radio" name="entry.REPLACE_STRESS" value="1" required> 1
+<input type="radio" name="entry.REPLACE_STRESS" value="2"> 2
+<input type="radio" name="entry.REPLACE_STRESS" value="3"> 3
+<input type="radio" name="entry.REPLACE_STRESS" value="4"> 4
+<input type="radio" name="entry.REPLACE_STRESS" value="5"> 5
+<br><br>
+
+<!-- 4 -->
+<label>Would you prefer a compatibility system instead of random allocation?</label><br>
+<input type="radio" name="entry.REPLACE_SYSTEM" value="Yes" required> Yes<br>
+<input type="radio" name="entry.REPLACE_SYSTEM" value="No"> No<br>
+<input type="radio" name="entry.REPLACE_SYSTEM" value="Maybe"> Maybe<br><br>
+
+<button type="submit">Submit</button>
+
+</form>
 
 <iframe name="hidden_iframe" style="display:none;"></iframe>
 
-<script src="script.js"></script>
 </body>
 </html>
