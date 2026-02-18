@@ -1,31 +1,37 @@
-document.addEventListener("DOMContentLoaded", function () {
+let currentPage = 0;
 
-    let currentPage = 0;
-    const pages = document.querySelectorAll(".form-page");
+const pages = document.querySelectorAll(".form-page");
+const progress = document.getElementById("progress");
 
-    function showPage(index) {
-        pages.forEach((page, i) => {
-            page.classList.remove("active");
-            if (i === index) {
-                page.classList.add("active");
-            }
-        });
+function showPage(index) {
+
+    pages.forEach((page, i) => {
+        page.classList.remove("active");
+        if (i === index) {
+            page.classList.add("active");
+        }
+    });
+
+    // Update progress bar
+    let percent = ((index + 1) / pages.length) * 100;
+    progress.style.width = percent + "%";
+}
+
+function nextPage() {
+    if (currentPage < pages.length - 1) {
+        currentPage++;
+        showPage(currentPage);
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
+}
 
-    window.nextPage = function () {
-        if (currentPage < pages.length - 1) {
-            currentPage++;
-            showPage(currentPage);
-        }
-    };
+function prevPage() {
+    if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+}
 
-    window.prevPage = function () {
-        if (currentPage > 0) {
-            currentPage--;
-            showPage(currentPage);
-        }
-    };
-
-    showPage(currentPage);
-
-});
+// Initialize first page
+showPage(currentPage);
