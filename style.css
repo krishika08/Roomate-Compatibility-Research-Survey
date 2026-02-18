@@ -1,11 +1,9 @@
-/* =========================
-   SMOOTH PAGE TRANSITIONS
-========================= */
+/* ===== MULTI PAGE SYSTEM WITH ANIMATION ===== */
 
 .form-page {
     display: none;
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(40px);
     transition: all 0.5s ease;
 }
 
@@ -13,24 +11,9 @@
     display: block;
     opacity: 1;
     transform: translateX(0);
-    animation: slideIn 0.5s ease;
 }
 
-/* Slide animation */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(60px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* =========================
-   PROGRESS BAR
-========================= */
+/* ===== PROGRESS BAR ===== */
 
 .progress-bar {
     width: 100%;
@@ -48,9 +31,7 @@
     transition: width 0.4s ease;
 }
 
-/* =========================
-   BUTTON ENHANCEMENT
-========================= */
+/* ===== BUTTON ENHANCEMENT ===== */
 
 button {
     padding: 10px 18px;
@@ -73,9 +54,7 @@ button:active {
     transform: scale(0.95);
 }
 
-/* =========================
-   INPUT FOCUS GLOW
-========================= */
+/* ===== INPUT GLOW EFFECT ===== */
 
 input[type="text"]:focus {
     outline: none;
@@ -83,21 +62,7 @@ input[type="text"]:focus {
     transition: 0.3s ease;
 }
 
-/* =========================
-   CONTAINER HOVER LIFT
-========================= */
-
-.container {
-    transition: 0.4s ease;
-}
-
-.container:hover {
-    transform: translateY(-5px);
-}
-
-/* =========================
-   STEP TITLE ANIMATION
-========================= */
+/* ===== SMOOTH TITLE ANIMATION ===== */
 
 h2 {
     animation: fadeInUp 0.6s ease;
