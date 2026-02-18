@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
     window.nextPage = function () {
 
         const inputs = pages[currentPage].querySelectorAll("input[required]");
