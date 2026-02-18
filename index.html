@@ -21,12 +21,13 @@
 
         <!-- ================= PAGE 1 ================= -->
         <div class="form-page active">
+
             <h2>Section 1: Basic Information</h2>
 
-            <label>Where are you currently studying?</label>
+            <label>Where are you currently studying? <span class="required">*</span></label>
             <input type="text" name="entry.976068160" required>
 
-            <label>Current living type</label>
+            <label>Current living type <span class="required">*</span></label>
             <div class="radio-group">
                 <label><input type="radio" name="entry.682599904" value="University dorm/hostel" required> University dorm/hostel</label>
                 <label><input type="radio" name="entry.682599904" value="Shared apartment"> Shared apartment</label>
@@ -34,7 +35,7 @@
                 <label><input type="radio" name="entry.682599904" value="Living alone"> Living alone</label>
             </div>
 
-            <label>Have you ever shared a room?</label>
+            <label>Have you ever shared a room? <span class="required">*</span></label>
             <div class="radio-group">
                 <label><input type="radio" name="entry.2078507498" value="Yes" required> Yes</label>
                 <label><input type="radio" name="entry.2078507498" value="No"> No</label>
@@ -45,10 +46,11 @@
 
         <!-- ================= PAGE 2 ================= -->
         <div class="form-page">
+
             <h2>Section 2: Lifestyle Preferences</h2>
 
             <!-- 1 -->
-            <label>I prefer sleeping early</label>
+            <label>I prefer sleeping early <span class="required">*</span></label>
             <div class="options">
                 <label><input type="radio" name="entry.1440041930" value="Strongly disagree" required> Strongly Disagree</label>
                 <label><input type="radio" name="entry.1440041930" value="Disagree"> Disagree</label>
@@ -58,7 +60,7 @@
             </div>
 
             <!-- 2 -->
-            <label>I wake up early</label>
+            <label>I wake up early <span class="required">*</span></label>
             <div class="options">
                 <label><input type="radio" name="entry.1959719675" value="Strongly disagree" required> Strongly Disagree</label>
                 <label><input type="radio" name="entry.1959719675" value="Disagree"> Disagree</label>
@@ -68,7 +70,7 @@
             </div>
 
             <!-- 3 -->
-            <label>Cleanliness is very important to me</label>
+            <label>Cleanliness is very important to me <span class="required">*</span></label>
             <div class="options">
                 <label><input type="radio" name="entry.1260389934" value="Strongly disagree" required> Strongly Disagree</label>
                 <label><input type="radio" name="entry.1260389934" value="Disagree"> Disagree</label>
@@ -78,7 +80,7 @@
             </div>
 
             <!-- 4 -->
-            <label>I prefer studying in silence</label>
+            <label>I prefer studying in silence <span class="required">*</span></label>
             <div class="options">
                 <label><input type="radio" name="entry.928408054" value="Strongly disagree" required> Strongly Disagree</label>
                 <label><input type="radio" name="entry.928408054" value="Disagree"> Disagree</label>
@@ -88,7 +90,7 @@
             </div>
 
             <!-- 5 -->
-            <label>I am comfortable with noise</label>
+            <label>I am comfortable with noise <span class="required">*</span></label>
             <div class="options">
                 <label><input type="radio" name="entry.965158461" value="Strongly disagree" required> Strongly Disagree</label>
                 <label><input type="radio" name="entry.965158461" value="Disagree"> Disagree</label>
@@ -98,7 +100,7 @@
             </div>
 
             <!-- 6 -->
-            <label>I frequently invite friends over</label>
+            <label>I frequently invite friends over <span class="required">*</span></label>
             <div class="options">
                 <label><input type="radio" name="entry.638025581" value="Strongly disagree" required> Strongly Disagree</label>
                 <label><input type="radio" name="entry.638025581" value="Disagree"> Disagree</label>
@@ -108,7 +110,7 @@
             </div>
 
             <!-- 7 -->
-            <label>I get disturbed by messy surroundings</label>
+            <label>I get disturbed by messy surroundings <span class="required">*</span></label>
             <div class="options">
                 <label><input type="radio" name="entry.1137093357" value="Strongly disagree" required> Strongly Disagree</label>
                 <label><input type="radio" name="entry.1137093357" value="Disagree"> Disagree</label>
@@ -123,25 +125,26 @@
 
         <!-- ================= PAGE 3 ================= -->
         <div class="form-page">
+
             <h2>Section 3: Experience & Feedback</h2>
 
-            <label>Have you experienced roommate conflict?</label>
+            <label>Have you experienced roommate conflict? <span class="required">*</span></label>
             <div class="radio-group">
                 <label><input type="radio" name="entry.1551104696" value="Yes" required> Yes</label>
                 <label><input type="radio" name="entry.1551104696" value="No"> No</label>
                 <label><input type="radio" name="entry.1551104696" value="Maybe"> Maybe</label>
             </div>
 
-            <label>Main reason (select all that apply)</label>
+            <label>Main reason (select at least one) <span class="required">*</span></label>
             <div class="checkbox-group">
-                <label><input type="checkbox" name="entry.1059884514" value="Sleep schedule"> Sleep schedule</label>
+                <label><input type="checkbox" name="entry.1059884514" value="Sleep schedule" required> Sleep schedule</label>
                 <label><input type="checkbox" name="entry.1059884514" value="Cleanliness"> Cleanliness</label>
                 <label><input type="checkbox" name="entry.1059884514" value="Noise"> Noise</label>
                 <label><input type="checkbox" name="entry.1059884514" value="Guests"> Guests</label>
                 <label><input type="checkbox" name="entry.1059884514" value="Personality"> Personality</label>
             </div>
 
-            <label>Stress level</label>
+            <label>Stress level (1 = Low, 5 = High) <span class="required">*</span></label>
             <div class="options">
                 <label><input type="radio" name="entry.1464268" value="1" required> 1</label>
                 <label><input type="radio" name="entry.1464268" value="2"> 2</label>
@@ -150,7 +153,7 @@
                 <label><input type="radio" name="entry.1464268" value="5"> 5</label>
             </div>
 
-            <label>Would you prefer compatibility-based allocation?</label>
+            <label>Would you prefer compatibility-based allocation? <span class="required">*</span></label>
             <div class="radio-group">
                 <label><input type="radio" name="entry.135114183" value="Yes" required> Yes</label>
                 <label><input type="radio" name="entry.135114183" value="No"> No</label>
