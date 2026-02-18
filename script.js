@@ -5,36 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showPage(index) {
         pages.forEach((page, i) => {
-            page.style.display = "none";
+            page.classList.remove("active");
             if (i === index) {
-                page.style.display = "block";
+                page.classList.add("active");
             }
         });
     }
+
     window.nextPage = function () {
-
-        const inputs = pages[currentPage].querySelectorAll("input[required]");
-        let valid = true;
-
-        inputs.forEach(input => {
-
-            if (input.type === "radio") {
-                const checked = pages[currentPage].querySelector(
-                    `input[name="${input.name}"]:checked`
-                );
-                if (!checked) valid = false;
-            }
-
-            if (input.type === "text" && input.value.trim() === "") {
-                valid = false;
-            }
-        });
-
-        if (!valid) {
-            alert("Please fill all required fields.");
-            return;
-        }
-
         if (currentPage < pages.length - 1) {
             currentPage++;
             showPage(currentPage);
@@ -49,4 +27,5 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     showPage(currentPage);
+
 });
