@@ -190,4 +190,25 @@ button:active {
         width: 100%;
         margin-top: 15px;
     }
+
+   /* THANK YOU MESSAGE */
+
+.thank-you {
+    text-align: center;
+    padding: 60px 20px;
+    animation: fadeIn 0.6s ease;
+}
+
+.thank-you h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #845ef7;
+}
+
+.thank-you p {
+    font-size: 16px;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
 }
