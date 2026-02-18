@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pages = document.querySelectorAll(".form-page");
     const progress = document.getElementById("progress");
     const form = document.getElementById("multiStepForm");
+    const container = document.querySelector(".container");
 
     function showPage(index) {
         pages.forEach((page, i) => {
@@ -13,33 +14,26 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Update Progress Bar
         let percent = ((index + 1) / pages.length) * 100;
         progress.style.width = percent + "%";
 
-        // Scroll to top smoothly
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    // Validate current page before moving next
     function validatePage(pageIndex) {
-        const currentFields = pages[pageIndex].querySelectorAll("input[required]");
-        
-        for (let field of currentFields) {
+        const requiredFields = pages[pageIndex].querySelectorAll("input[required]");
+
+        for (let field of requiredFields) {
 
             if (field.type === "radio") {
-                const name = field.name;
-                const checked = pages[pageIndex].querySelector(`input[name="${name}"]:checked`);
+                const checked = pages[pageIndex].querySelector(`input[name="${field.name}"]:checked`);
                 if (!checked) {
-                    alert("Please answer all required questions before continuing.");
+                    alert("Please answer all required questions.");
                     return false;
                 }
             } else {
                 if (!field.value.trim()) {
-                    alert("Please fill all required fields before continuing.");
+                    alert("Please fill all required fields.");
                     return false;
                 }
             }
@@ -64,21 +58,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // Submit Animation
+    // THANK YOU MESSAGE (No redirect)
     form.addEventListener("submit", function (e) {
 
-        // Optional success message before submission
-        alert("Thank you! Your response has been submitted successfully 🎉");
+        e.preventDefault(); // Stop default submission
 
-        // Optional: redirect after 1 second
-        setTimeout(() => {
-            window.location.href = "thankyou.html"; 
-            // Remove above line if you don’t want redirect
-        }, 1000);
+        // Send form data to Google
+        fetch(form.action, {
+            method: "POST",
+            mode: "no-cors",
+            body: new FormData(form)
+        });
 
+        // Replace form with thank you message
+        container.innerHTML = `
+            <div class="thank-you">
+                <h1>🎉 Thank You!</h1>
+                <p>Your response has been submitted successfully.</p>
+                <p>We appreciate your time and participation.</p>
+            </div>
+        `;
     });
 
-    // Initialize first page
     showPage(currentPage);
-
 });
